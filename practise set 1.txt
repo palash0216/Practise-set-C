@@ -1,0 +1,268 @@
+1. Consider two numbers are entered through the keyboard. Write a program to find
+the value of one number raised to the power of another. (For example x and y are
+input variables and output is xy )
+2. Write a program to find input number is Prime or not.
+3. Write a program to print all the ASCII values and their equivalent characters using
+a while loop. The ASCII values vary from 0 to 255. Use formatting options with
+printf to display ASCII values and corresponding characters in a tabular form.
+4. Write a program to read a number N and print all its divisors.
+5. Write a program to find that given number is perfect number or not.
+6. Write a program for computing factorial N (N!).
+7. Write a program that accepts N numbers as an input and print sum and average of
+N numbers.
+8. Write a program for computing the sum of digits in a number.
+9. Write a program to find that given number is Armstrong number or not.
+10.Write a program to find that given number is palindrome or not.
+11.Write a program to enter the numbers till the user wants and at the end it should
+display the count of positive, negative and zeros entered.
+
+
+____________________________________________________________________________________________________________________________________________________________________________
+
+
+q1.
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    int x, y, z = 1;
+    printf("enter x and y to get ( x^y )\n ");
+    scanf("%d %d", &x, &y);
+    for (int i = 1; i <= y; i++)
+    {
+        z = z * x;
+    }
+    printf("The result for %d ^ %d is %d ", x, y, z);
+    return 0;
+}
+____________________________________________________________________________________________________________________________________________________________________________
+
+q2.
+#include <stdio.h>
+
+int main()
+{
+    int num, c = 0;
+    printf("Enter your number\n");
+    scanf("%d", &num);
+    for (int i = 2; i < num / 2; i++)
+    {
+        if (num % i == 0)
+        {
+            c++;
+        }
+    }
+    if (c == 0)
+    {
+        printf("Number is prime \n");
+    }
+    else
+    {
+        printf("Not prime \n");
+    }
+
+    return 0;
+}
+____________________________________________________________________________________________________________________________________________________________________________
+
+q3.
+#include <stdio.h>
+
+int main()
+{
+    int num;
+    while (num <= 255)
+    {
+        printf("%d--------%c\n", num, num);
+        num++;
+    }
+    return 0;
+}
+____________________________________________________________________________________________________________________________________________________________________________
+
+q4.
+#include <stdio.h>
+
+int main()
+{
+    int num;
+    printf("Enter the Number to find its divisiors \n");
+    scanf("%d", &num);
+    for (int i = 1; i <= num; i++)
+    {
+        if (num % i == 0)
+            printf("%d\n", i);
+    }
+    return 0;
+}
+____________________________________________________________________________________________________________________________________________________________________________
+
+q5.
+/*Perfect number, a positive integer that is equal to the sum of its proper divisors. ... The smallest perfect number is 6, which is the sum of 1, 2, and 3. Other perfect numbers are 28, 496, and 8,128.*/
+
+#include <stdio.h>
+
+int main()
+{
+    int num, sum = 0;
+    printf("Enter the Number  \n");
+    scanf("%d", &num);
+    for (int i = 1; i < num; i++)
+    {
+        if (num % i == 0)
+        {
+            printf("%d\n", i); // to find its divisors which is not included the same number
+            sum = sum + i;
+        } // adding divisors
+    }
+    printf("%d \n", sum);
+    if (sum == num)
+    {
+        printf("Perfect Number\n");
+    }
+    else
+    {
+        printf("NOT a perfect number \n");
+    }
+
+    return 0;
+}
+____________________________________________________________________________________________________________________________________________________________________________
+
+q6.
+#include <stdio.h>
+
+int main()
+{
+    int num, fac = 1;
+    printf("Enter the Number  \n");
+    scanf("%d", &num);
+    for (int i = num; i >= 1; i--)
+    {
+        fac = fac * i;
+    }
+    printf("Factorial of a %d is %d", num, fac);
+    return 0;
+}
+____________________________________________________________________________________________________________________________________________________________________________
+
+q7.
+#include <stdio.h>
+
+int main()
+{
+    int num, n, sum = 0;
+    float avg;
+    printf("Enter the Number of numbers you want to enter for sum and average  \n");
+    scanf("%d", &num);
+    for (int i = 1; i <= num; i++)
+    {
+        scanf("%d", &n);
+        sum += n;
+    }
+    avg = sum / num;
+    printf("The sum of your numbers are %d \n", sum);
+    printf("The Average of your numbers are %0.1f", avg);
+    return 0;
+}
+____________________________________________________________________________________________________________________________________________________________________________
+
+q8.
+#include <stdio.h>
+
+int main()
+{
+    int num, rem=0,  sum = 0;
+    printf("Enter the Number \n");
+    scanf("%d", &num);
+    while (num != 0)
+    {
+        rem = num % 10;
+        sum = sum + rem;
+        num = num/ 10;
+    }
+    printf("The Sum of the digits is %d", sum);
+    return 0;
+}
+____________________________________________________________________________________________________________________________________________________________________________
+
+q9.
+/* Armstrong number is a number that is equal to the sum of cubes of its digits. For example 0, 1, 153, 370, 371 and 407 are the Armstrong numbers. */
+#include<stdio.h>
+
+int main() 
+{ int num, rem,check,sum=0;
+    printf("Enter the Number \n");
+    scanf("%d", &num);
+    check=num;
+    while (num != 0)
+    {   
+        rem = num % 10;
+        sum=sum+(rem*rem*rem);
+
+        num = num/ 10;
+        
+    }
+    if(check==sum)
+    {
+        printf("YOUR NUMBER IS AN ARMSTRONG NUMBER \n");
+    }
+    else
+    {
+        printf("YOUR NUMBER IS NOT  AN ARMSTRONG NUMBER \n");
+    }
+    
+
+     return 0;
+}
+____________________________________________________________________________________________________________________________________________________________________________
+
+q10.
+#include<stdio.h>
+
+int main() 
+{ int num,check,rev=0,rem=0;
+    printf("Enter the Number \n");
+    scanf("%d", &num);
+    check=num;
+    while(num!=0)
+    {
+        rem=num%10;
+        rev=rev*10+rem;
+        num=num/10;
+    }
+    if(check==rev)
+    {
+        printf("Your number is a palindrome number");
+    }
+    else
+    {
+        printf("Your number is not a palindrome number");
+    }
+    
+     return 0;
+}
+____________________________________________________________________________________________________________________________________________________________________________
+
+q11.
+#include<stdio.h>
+
+int main() 
+{
+    int num,n,pos=0,neg=0,zero=0;
+     printf("Enter the Number of numbers you want to enter : \n");
+    scanf("%d",&num);
+    for (int i =1; i <=num; i++)
+    {
+        scanf("%d",&n);
+        if(n>0)
+        pos++;
+        else if (n<0)
+        neg++;
+        else
+        zero++;
+    } printf(" count of positive numbers = %d \n \n count of negative numbers=%d \n \n count of zeros =%d ",pos,neg,zero);
+     return 0;
+}
+____________________________________________________________________________________________________________________________________________________________________________
